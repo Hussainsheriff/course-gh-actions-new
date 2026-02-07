@@ -28,7 +28,12 @@ jobs:
       - uses: actions/setup-go@v5
         with:
           go-version-file: ./upper/go.mod
-      - run: go version
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: ./upper/go.mod
+          cache-dependency-path: ./upper/go.sum
+      - run: go mod download
+        working-directory: upper
       - run: |
           ls
           go build
