@@ -18,7 +18,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - run: pwd && ls -al
       - uses: actions/checkout@v4
+      - run: pwd && ls -al
       - run: go version
       - uses: actions/setup-go@v5
         with:
